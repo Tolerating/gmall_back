@@ -1,6 +1,5 @@
 package com.atguigu.gmall.bean;
 
-import com.atguigu.gmall.bean.PmsProductSaleAttrValue;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -25,7 +24,7 @@ public class PmsProductSaleAttr implements Serializable {
 
 
     @Transient
-    List<PmsProductSaleAttrValue> spuSaleAttrValueList;
+    List<PmsProductSaleAttrValue> pmsProductSaleAttrValueList;
 
     public String getId() {
         return id;
@@ -59,11 +58,11 @@ public class PmsProductSaleAttr implements Serializable {
         this.saleAttrName = saleAttrName;
     }
 
-    public List<PmsProductSaleAttrValue> getSpuSaleAttrValueList() {
-        return spuSaleAttrValueList;
+    public List<PmsProductSaleAttrValue> getPmsProductSaleAttrValueList() {
+        return pmsProductSaleAttrValueList;
     }
 
-    public void setSpuSaleAttrValueList(List<PmsProductSaleAttrValue> spuSaleAttrValueList) {
-        this.spuSaleAttrValueList = spuSaleAttrValueList;
+    public void setPmsProductSaleAttrValueList(List<PmsProductSaleAttrValue> pmsProductSaleAttrValueList) {
+        this.pmsProductSaleAttrValueList = pmsProductSaleAttrValueList;
     }
 }

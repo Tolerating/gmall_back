@@ -6,28 +6,29 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-public class UmsMember implements Serializable{
+public class UmsMember implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
-    private String levelId; //会员等级id
-    private String username; //用户名
-    private String password; //密码
-    private String nickname; //昵称
-    private String mobile;   //手机号码
-    private String email;    //邮箱
-    private String header;  //头像
-    private int gender;    //性别
-    private Date birth;    //生日
-    private String city;   //所在城市
-    private String job;    //职业
-    private String sign;   //个性签名
-    private int sourceType;  //用户来源
-    private int integration;  //积分
-    private int growth;     //成长值
-    private int status;     //启用状态
-    private Date createTime;  //注册时间
+    private String memberLevelId;
+    private String username;
+    private String password;
+    private String nickname;
+    private String phone;
+    private int status;
+    private Date createTime;
+    private String icon;
+    private int gender;
+    private Date birthday;
+    private String city;
+    private String job;
+    private String personalizedSignature;
+    private int sourceType;
+    private int integration;
+    private int growth;
+    private int luckeyCount;
+    private int historyIntegration;
 
     public String getId() {
         return id;
@@ -37,12 +38,12 @@ public class UmsMember implements Serializable{
         this.id = id;
     }
 
-    public String getLevelId() {
-        return levelId;
+    public String getMemberLevelId() {
+        return memberLevelId;
     }
 
-    public void setLevelId(String levelId) {
-        this.levelId = levelId;
+    public void setMemberLevelId(String memberLevelId) {
+        this.memberLevelId = memberLevelId;
     }
 
     public String getUsername() {
@@ -69,28 +70,36 @@ public class UmsMember implements Serializable{
         this.nickname = nickname;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getEmail() {
-        return email;
+    public int getStatus() {
+        return status;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
-    public String getHeader() {
-        return header;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setHeader(String header) {
-        this.header = header;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 
     public int getGender() {
@@ -101,12 +110,12 @@ public class UmsMember implements Serializable{
         this.gender = gender;
     }
 
-    public Date getBirth() {
-        return birth;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setBirth(Date birth) {
-        this.birth = birth;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public String getCity() {
@@ -125,12 +134,12 @@ public class UmsMember implements Serializable{
         this.job = job;
     }
 
-    public String getSign() {
-        return sign;
+    public String getPersonalizedSignature() {
+        return personalizedSignature;
     }
 
-    public void setSign(String sign) {
-        this.sign = sign;
+    public void setPersonalizedSignature(String personalizedSignature) {
+        this.personalizedSignature = personalizedSignature;
     }
 
     public int getSourceType() {
@@ -157,21 +166,19 @@ public class UmsMember implements Serializable{
         this.growth = growth;
     }
 
-    public int getStatus() {
-        return status;
+    public int getLuckeyCount() {
+        return luckeyCount;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setLuckeyCount(int luckeyCount) {
+        this.luckeyCount = luckeyCount;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public int getHistoryIntegration() {
+        return historyIntegration;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setHistoryIntegration(int historyIntegration) {
+        this.historyIntegration = historyIntegration;
     }
-
-
 }

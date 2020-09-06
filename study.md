@@ -106,9 +106,13 @@ Ctrl + Shift + / : 	代码块注释
 Ctrl + / :	注释光标所在行代码
 Ctrl + W : 选中光标处的单词
 ALT + Insert : 快速生成代码（例如getter、setter）
-
+Ctrl + Alt + B ; 将光标定位在接口名上，快速跳转到该接口的实现类中
 ```
 
+## 通用mapper中的insert和insertSelective的区别：
+* insert：全部插入数据库
+* insertSelective：只将非空的有值的字段插入数据库
+ 
 
 
 ## 注解
@@ -120,5 +124,7 @@ ALT + Insert : 快速生成代码（例如getter、setter）
 @ResponseBody;
 
 @Autowired;
+
+@CrossOrigin ：返回体中携带跨域头
 ```
 

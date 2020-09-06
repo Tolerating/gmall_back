@@ -1,7 +1,6 @@
 package com.atguigu.gmall.bean;
 
-import com.atguigu.gmall.bean.PmsProductImage;
-import com.atguigu.gmall.bean.PmsProductSaleAttr;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -29,10 +28,9 @@ public class PmsProductInfo implements Serializable {
     private  String catalog3Id;
 
     @Transient
-    private List<PmsProductSaleAttr> spuSaleAttrList;
-
+    private List<PmsProductSaleAttr> pmsProductSaleAttrList;
     @Transient
-    private List<PmsProductImage> spuImageList;
+    private List<PmsProductImage> pmsProductImageList;
 
 
     public String getProductName() {
@@ -43,21 +41,22 @@ public class PmsProductInfo implements Serializable {
         this.productName = productName;
     }
 
-    public List<PmsProductSaleAttr> getSpuSaleAttrList() {
-        return spuSaleAttrList;
+    public List<PmsProductSaleAttr> getPmsProductSaleAttrList() {
+        return pmsProductSaleAttrList;
     }
 
-    public void setSpuSaleAttrList(List<PmsProductSaleAttr> spuSaleAttrList) {
-        this.spuSaleAttrList = spuSaleAttrList;
+    public void setPmsProductSaleAttrList(List<PmsProductSaleAttr> pmsProductSaleAttrList) {
+        this.pmsProductSaleAttrList = pmsProductSaleAttrList;
     }
 
-    public List<PmsProductImage> getSpuImageList() {
-        return spuImageList;
+    public List<PmsProductImage> getPmsProductImageList() {
+        return pmsProductImageList;
     }
 
-    public void setSpuImageList(List<PmsProductImage> spuImageList) {
-        this.spuImageList = spuImageList;
+    public void setPmsProductImageList(List<PmsProductImage> pmsProductImageList) {
+        this.pmsProductImageList = pmsProductImageList;
     }
+
 
     public String getId() {
         return id;

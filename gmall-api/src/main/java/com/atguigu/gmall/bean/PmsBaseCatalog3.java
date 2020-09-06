@@ -4,12 +4,10 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 public class PmsBaseCatalog3 implements Serializable {
-
     @Id
     private String id;
     private String name;
-    private String catalog2Id;
-
+    private String catalog2_id;
 
     public String getId() {
         return id;
@@ -27,11 +25,11 @@ public class PmsBaseCatalog3 implements Serializable {
         this.name = name;
     }
 
-    public String getCatalog2Id() {
-        return catalog2Id;
+    public String getCatalog2_id() {
+        return catalog2_id;
     }
 
-    public void setCatalog2Id(String catalog2Id) {
-        this.catalog2Id = catalog2Id;
+    public void setCatalog2_id(String catalog2_id) {
+        this.catalog2_id = catalog2_id;
     }
 }
