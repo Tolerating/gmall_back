@@ -1,4 +1,4 @@
-哔哩哔哩视频看到：https://www.bilibili.com/video/BV1LK4y1b7Ds?p=47（已看完）
+哔哩哔哩视频看到：https://www.bilibili.com/video/BV1LK4y1b7Ds?p=54（已看完）
 
 [域名的配置](https://www.bilibili.com/video/BV1LK4y1b7Ds?p=9)
 
@@ -21,6 +21,16 @@ gmall-common-util   : 通用型第三方包，是所有应用工程需要引入�
 <artifactId>gmall-parent</artifactId>
 <version>1.0-SNAPSHOT</version>
 ```
+
+
+## 技术栈
+
+ 技术栈|版本|描述
+ ----|---|----
+ zookeeper|3.4.14|分布式的架构
+ dubbo|2.6.5| 分布式架构间的通讯
+ 
+
 
 ## Idea @AutoWiried 误报
 Settings --> 搜索“inspect” --> spring --> code --> [AutoWiring for Bean Class]不打勾

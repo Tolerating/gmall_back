@@ -96,6 +96,15 @@ public class GmallUserApplication {
 * 实体类需要有相关的注解： `@table, @Id @Colunm`等等
 * mapper扫描器需要使用tx...MapperScan
 
+## 接收图片
+```java
+import org.springframework.web.multipart.MultipartFile;
+    @RequestMapping("fileUpload")
+    @ResponseBody
+    public String fileUpload(@RequestParam("file") MultipartFile multipartFile){
+        return "success"
+    }
+```
 
 ## idea 快捷键
 ```text
@@ -197,16 +206,24 @@ dubbo.consumer.timeout=600000
 dubbo.consumer.check=false
 ```
 
+## idea设置单行注释插入到光标前面
+* 依次打开`file --> settings --> editor --> code style --> java --> code generation`
+> 将comment code里的勾都去掉
+
 ## 注解
 ```
 @MapperScan(basePackages = "com.atguigu.gmall.user.mapper");
 
 @RequestMapping("index");
 
+@Reference
+
 @ResponseBody;
 
 @Autowired;
 
 @CrossOrigin ：返回体中携带跨域头
+
+@RequestParam("")
 ```
 
