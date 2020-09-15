@@ -1,4 +1,4 @@
-哔哩哔哩视频看到：https://www.bilibili.com/video/BV1LK4y1b7Ds?p=54（已看完）
+哔哩哔哩视频看到：https://www.bilibili.com/video/BV1LK4y1b7Ds?p=67（已看完）
 
 [域名的配置](https://www.bilibili.com/video/BV1LK4y1b7Ds?p=9)
 
@@ -15,6 +15,7 @@ gmall-api   : 管理数据库实体类（bean）和service接口
 gmall-common-util   : 通用型第三方包，是所有应用工程需要引入的包
 
 ```
+> 注意：当新建一个模块时，maven的groupid应与其他模块保持一致，例如本项目的统一为com.atguigu.gmall
 ### `gmall-parent`新建为`maven`项目
 ```xml
 <groupId>com.atguigu.gmall</groupId>
