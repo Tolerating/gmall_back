@@ -1,4 +1,4 @@
-哔哩哔哩视频看到：https://www.bilibili.com/video/BV1LK4y1b7Ds?p=67（已看完）
+哔哩哔哩视频看到：https://www.bilibili.com/video/BV1LK4y1b7Ds?p=70（已看完）
 
 [域名的配置](https://www.bilibili.com/video/BV1LK4y1b7Ds?p=9)
 
@@ -7,6 +7,9 @@
 
 * gmall-manage-service 后台管理服务的service层 8071
 * gmall-manage-web 后台管理服务的web层 8081
+
+* gmall-item-service 前台的商品详情服务的service层 8072
+* gmall-item-web 前台的商品详情服务的web层 8081
 
 ## 项目结构
 ```text
@@ -30,6 +33,7 @@ gmall-common-util   : 通用型第三方包，是所有应用工程需要引入�
  ----|---|----
  zookeeper|3.4.14|分布式的架构
  dubbo|2.6.5| 分布式架构间的通讯
+ fastdfs|5.0.5| 分布式文件系统
  
 
 

@@ -42,6 +42,7 @@ public class SpuServiceImpl implements SpuService {
         pmsProductInfoMapper.insertSelective(pmsProductInfo);
         //保存商品的主键
         String productId = pmsProductInfo.getId();
+        //System.out.println(productId);
 
         //保存图片
         List<PmsProductImage> spuImageList = pmsProductInfo.getSpuImageList();
@@ -63,5 +64,28 @@ public class SpuServiceImpl implements SpuService {
                 pmsProductSaleAttrValueMapper.insertSelective(pmsProductSaleAttrValue);
             }
         }
+    }
+
+    @Override
+    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId) {
+        PmsProductSaleAttr pmsProductSaleAttr = new PmsProductSaleAttr();
+        pmsProductSaleAttr.setProductId(spuId);
+        List<PmsProductSaleAttr> pmsProductSaleAttrList = pmsProductSaleAttrMapper.select(pmsProductSaleAttr);
+        for (PmsProductSaleAttr productSaleAttr:pmsProductSaleAttrList){
+            PmsProductSaleAttrValue pmsProductSaleAttrValue = new PmsProductSaleAttrValue();
+            pmsProductSaleAttrValue.setProductId(spuId);
+            pmsProductSaleAttrValue.setSaleAttrId(productSaleAttr.getSaleAttrId());
+            List<PmsProductSaleAttrValue> pmsProductSaleAttrValueList = pmsProductSaleAttrValueMapper.select(pmsProductSaleAttrValue);
+            productSaleAttr.setSpuSaleAttrValueList(pmsProductSaleAttrValueList);
+        }
+        return pmsProductSaleAttrList;
+    }
+
+    @Override
+    public List<PmsProductImage> spuImageList(String spuId) {
+        PmsProductImage pmsProductImage = new PmsProductImage();
+        pmsProductImage.setProductId(spuId);
+        List<PmsProductImage> pmsProductImageList = pmsProductImageMapper.select(pmsProductImage);
+        return pmsProductImageList;
     }
 }

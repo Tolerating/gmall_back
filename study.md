@@ -22,8 +22,43 @@ GmallUserApplication类中为何要加入`@MapperScan`?
 
 #### idea 配置mysql数据库插件（sql语句提醒等等）
 Database --》加号 --》 Data Source --》 MySQL
+### 20209月19日
+springboot中接受文件用到的`MultipartFile`
+```java
+    @RequestMapping("fileUpload")
+    @ResponseBody
+    public String fileUpload(@RequestParam("file") MultipartFile multipartFile){
+        // 将图片或视频上传至分布式的文件存储系统
+        //将图片的存储路径返回给页面
+        String imgUrl = PmsUploadUtil.uploadImage(multipartFile);
+        System.out.println(imgUrl);
+        return imgUrl;
+    }
+```
 
 
+## springboot接收get和post请求
+```java
+    @RequestMapping("attrInfoList")
+    @ResponseBody
+    /**
+     * @Description: get请求示例
+     */
+    public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id){
+        List<PmsBaseAttrInfo> pmsBaseAttrInfos = attrService.attrInfoList(catalog3Id);
+        return pmsBaseAttrInfos;
+    }
+    
+        @RequestMapping("saveAttrInfo")
+        @ResponseBody
+        /**
+         * @Description: Post请求示例
+         */
+        public String saveAttrInfo(@RequestBody PmsBaseAttrInfo pmsBaseAttrInfo){
+            String success = attrService.saveAttrInfo(pmsBaseAttrInfo);
+            return success;
+        }
+```
 ## 通用mapper的整合（可以将单表的增删改查操作省去）
 一、导入pom依赖
 ```xml
@@ -422,7 +457,25 @@ exit $?
 9   systemctl disable firewalld.service //开机禁用防火墙
 
 ```
+#### 出现的问题
+1.每次电脑开机后重新启动`nginx`后都会报错：`nginx.pid`找不到
+* 报错信息：`nginx: [emerg] open() "/var/run/nginx/nginx.pid" failed (2: No such file or directory)`
+* 报错原因：原因就是每次重新启动，系统都会自动删除文件，
+**解决办法**
+```text
+# 更改pid文件存储的位置
 
+1 打开nginx.conf
+2 将 pid   logs/nginx.pid  的注释打开
+3 在nginx的根目录下新建logs文件夹
+4 在sbin/路径下执行： ./nginx -c /usr/local/nginx/conf/nginx.conf
+
+```
+2.`nginx`开机未启动
+因为`/etc/rc.d/rc.local`没有执行权限，只需给其附加上可执行权限即可
+`chmod +x /etc/rc.d/rc.local`
+
+> `/etc/rc.d/rc.local`，里面的命令写为执行文件的绝对路径
 ### 7.fastdfs客户端安装
 > fastdfs没有在中心仓库中提供获取的依赖坐标，需要我们在git仓库中下载，然后打成jar包，安装到本地仓库中
 [GitHub官方地址](https://github.com/happyfish100/fastdfs-client-java)
@@ -462,6 +515,7 @@ class GmallUesrServiceApplicationTests {
         String orginalFilename="e://victor.jpg";
         String[] upload_file = storageClient.upload_file(orginalFilename, "jpg", null);
         for (int i = 0; i < upload_file.length; i++) {
+            //文件上传成功后返回的是一个数组，需要进行拼接
             String s = upload_file[i];
             System.out.println("s = " + s);
         }
@@ -577,16 +631,20 @@ server.port=8080
 logging.level.root=info
 
 # dubbo的配置
+
 # dubbo中的服务名称
 dubbo.application.name=user-web
 # zookeeper注册中心的 地址
 dubbo.registry.address=zookeeper://192.168.3.70:2181
 # dubbo通讯协议名称
 dubbo.protocol.name=dubbo
+
 #zookeeper的通讯协议的名称
 dubbo.registry.protocol=zookeeper
 #dubo的服务的扫描路径
 dubbo.scan.base-packages=com.atguigu.gmall
+# 设置是否检查服务存在
+dubbo.consumer.check=false
 ```
 ### dubbo配置的注意事项
 1. spring的Service改为dubbo的Service
