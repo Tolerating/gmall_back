@@ -129,6 +129,79 @@ public class GmallUserApplication {
 * 实体类需要有相关的注解： `@table, @Id @Colunm`等等
 * mapper扫描器需要使用tx...MapperScan
 
+## 模板技术`thymeleaf`在springboot中的使用
+### 引入
+```text
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+```
+
+### 添加目录和约束
+在项目的`resources`目录下新建`static`和`templates`文件夹
+> templates:放置模板文件（html文件）<br>
+> static: 放置静态资源 
+
+> thymeleaf是springboot的原生渲染模板，它使用的是html扩展标签，需要在页面上声明thymeleaf的模板约束
+```html
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+```
+### 访问模板文件
+```java
+package com.atguigu.gmall.item.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class TestController {
+    @RequestMapping("index")
+    public String index(){
+        //返回模板文件的名字
+        return "index";
+    }
+}
+```
+
+### 送校验和热部署
+* 引入依赖
+```text
+<dependency>
+    <groupId>net.sourceforge.nekohtml</groupId>
+    <artifactId>nekohtml</artifactId>
+    <version>1.9.20</version>
+</dependency>
+<dependency>
+    <groupId>xml-apis</groupId>
+    <artifactId>xml-apis</artifactId>
+    <version>1.4.01</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.xmlgraphics</groupId>
+    <artifactId>batik-ext</artifactId>
+    <version>1.9.1</version>
+</dependency>
+```
+* 添加配置
+```properties
+# 关闭thymeleaf的缓存,避免修改模板还要重启服务器
+spring.thymeleaf.cache=false
+
+# 松校验
+spring.thymeleaf.mode=HTML
+```
+* 使用热部署：`Ctrl + Shfit + F9`
+
 ## 分布式文件存储（fastdfs）的安装(按顺序执行以下步骤)
 ```text
 // 安装依赖
@@ -564,6 +637,8 @@ Ctrl + / :	注释光标所在行代码
 Ctrl + W : 选中光标处的单词
 ALT + Insert : 快速生成代码（例如getter、setter）
 Ctrl + Alt + B ; 将光标定位在接口名上，快速跳转到该接口的实现类中
+Ctrl + Alt + V : 代码自动补全（用于new对象，可以只写new Object();然后使用快捷键）
+
 ```
 
 ## 通用mapper中的insert和insertSelective的区别：

@@ -1,4 +1,6 @@
-哔哩哔哩视频看到：https://www.bilibili.com/video/BV1LK4y1b7Ds?p=70（已看完）
+哔哩哔哩视频看到：https://www.bilibili.com/video/BV1LK4y1b7Ds?p=80（已看完）
+
+**寒假再接着学**
 
 [域名的配置](https://www.bilibili.com/video/BV1LK4y1b7Ds?p=9)
 
@@ -9,7 +11,7 @@
 * gmall-manage-web 后台管理服务的web层 8081
 
 * gmall-item-service 前台的商品详情服务的service层 8072
-* gmall-item-web 前台的商品详情服务的web层 8081
+* gmall-item-web 前台的商品详情服务的web层 8082
 
 ## 项目结构
 ```text
